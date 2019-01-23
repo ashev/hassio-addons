@@ -7,6 +7,7 @@ Currently only working for the first webcam found at /dev/video0
 ### Changelog
 |Version|Changes|
 |-------|-------|
+|2.2    | Added movie output configuration |
 |2.1    | Added webcontrol configuration |
 |2.0    | Changed base image to debian:jessie. Size is now bigger, but finally stable!|
 |1.0    | Inital release. A bit unstable|
@@ -111,6 +112,30 @@ Default value is equivalent to legacy oldlayout option
 For Motion 3.0 compatible mode choose: %Y/%m/%d/%H/%M/%S-%q  
 File extension .jpg or .ppm is automatically added so do not include this  
 Set to 'preview' together with best-preview feature enables special naming convention for preview shots. See motion guide for details
+
+```
+%Y = year, %m = month, %d = date,
+%H = hour, %M = minute, %S = second, %T = HH:MM:SS,
+%v = event, %q = frame number, %t = camera id number,
+%D = changed pixels, %N = noise level, \n = new line,
+%i and %J = width and height of motion area,
+%K and %L = X and Y coordinates of motion center
+%C = value defined by text_event - do not use with text_event!
+You can put quotation marks around the text to allow leading spaces
+```
+
+##### movie_output
+*on*
+
+Film (movies) file output  
+Valid values: on, off
+
+##### movie_name
+*%v-%Y%m%d%H%M%S*
+
+File path for motion triggered movie relative to target_dir  
+Default value is equivalent to legacy oldlayout option  
+File extension is automatically added so do not include this  
 
 ```
 %Y = year, %m = month, %d = date,
