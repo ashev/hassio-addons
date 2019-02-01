@@ -1,5 +1,5 @@
 
-FROM debian:jessie
+FROM debian:stratch
 
 RUN apt-get update && apt-get install -q -y --no-install-recommends \
     motion \
